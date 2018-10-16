@@ -37,7 +37,7 @@ If you&apos;re interested in translating Veyon into your local or another langua
     </message>
     <message>
         <source>About %1 %2</source>
-        <translation>O %1 %2<translation>
+        <translation>Vizitka %1 %2<translation>
     </message>
     <message>
         <source>Support Veyon project with a donation</source>
@@ -140,11 +140,11 @@ If you&apos;re interested in translating Veyon into your local or another langua
     </message>
     <message>
         <source>User groups backend:</source>
-        <translation></translation>
+        <translation>Uporabniške skupine ozadja:</translation>
     </message>
     <message>
         <source>Missing user groups backend</source>
-        <translation></translation>
+        <translation>Manjkajoče skupine uporabnikov ozadja</translation>
     </message>
     <message>
         <source>No default user groups plugin was found. Please check your installation!</source>
@@ -207,7 +207,7 @@ If you&apos;re interested in translating Veyon into your local or another langua
     </message>
     <message>
         <source>If more than one condition is activated each condition has to meet in order to make the rule apply (logical AND). If only one of multiple conditions has to meet (logical OR) please create multiple access control rules.</source>
-        <translation></translation>
+        <translation>Če je aktiviranih več pogojev, se mora izpolniti vsak pogoj, da se pravilo uporabi (logični AND). Če se mora izpolniti samo eden od več pogojev (logični OR), ustvarite več pravil za nadzor dostopa.</translation>
     </message>
     <message>
         <source>Action</source>
@@ -633,31 +633,31 @@ Javni ključ se uporablja v odjemalskih računalnikih za preverjanje pristnosti 
     </message>
     <message>
         <source>This command lists all available authentication keys in the configured key directory. If the option &quot;%1&quot; is specified a table with key details will be displayed instead. Some details might be missing if a key is not accessible e.g. due to the lack of read permissions.</source>
-        <translation></translation>
+        <translation>Ta ukaz navaja vse razpoložljive ključe za overjanje v nastavljenem imeniku ključev. Če je možnost &quot;%1&quot; določena, bo prikazana tabela s podatki ključa namesto tega. Nekateri podatki morda manjkajo, če ključ ni dostopen, npr. zaradi pomanjkanja dovoljenj za branje.</translation>
     </message>
     <message>
         <source>This command extracts the public key part from the private key &lt;KEY&gt; and saves it as the corresponding public key.</source>
-        <translation></translation>
+        <translation>Ta ukaz izvleče del javnega ključa iz zasebnega ključa &lt;KLJUČ&gt; in ga shrani kot ustrezni javni ključ.</translation>
     </message>
     <message>
         <source>Please specify the command to display help for!</source>
-        <translation></translation>
+        <translation>Navedite ukaz za prikaz pomoči!</translation>
     </message>
     <message>
         <source>TYPE</source>
-        <translation></translation>
+        <translation>VRSTA</translation>
     </message>
     <message>
         <source>PAIR ID</source>
-        <translation></translation>
+        <translation>PAIR ID</translation>
     </message>
     <message>
         <source>Command line support for managing authentication keys</source>
-        <translation></translation>
+        <translation>Podpora za ukazno vrstico za upravljanje ključev za preverjanje pristnosti</translation>
     </message>
     <message>
         <source>Commands for managing authentication keys</source>
-        <translation></translation>
+        <translation>Ukazi za upravljanje ključev za preverjanje pristnosti</translation>
     </message>
 </context>
 <context>
@@ -668,7 +668,7 @@ Javni ključ se uporablja v odjemalskih računalnikih za preverjanje pristnosti 
     </message>
     <message>
         <source>Type</source>
-        <translation>Tip</translation>
+        <translation>Vrsta</translation>
     </message>
     <message>
         <source>Access group</source>
@@ -679,7 +679,7 @@ Javni ključ se uporablja v odjemalskih računalnikih za preverjanje pristnosti 
     <name>BuiltinDirectoryConfigurationPage</name>
     <message>
         <source>Rooms &amp; computers</source>
-        <translation>Sobe &amp; računalniki</translation>
+        <translation>Sobe in računalniki</translation>
     </message>
     <message>
         <source>Rooms</source>
@@ -786,7 +786,31 @@ Examples:
 
     %1 import data.txt regex '^&quot;(%room%:[^&quot;]+)&quot;;&quot;(%host%:[a-z\d\.]+)&quot;.*$'
 </source>
-        <translation></translation>
+        <translation>
+UPORABA
+
+%1 import &lt;FILE&gt; [room &lt;ROOM&gt;] [format &lt;FORMAT-STRING-WITH-VARIABLES&gt;] [regex &lt;REGULAR-EXPRESSION-WITH-VARIABLES&gt;]
+
+Veljavne spremenljivke: %name% %host% %mac% %room%
+
+Primeri:
+
+* Uvozi preprosto datoteko CSV v eno sobo:
+
+     %1 import computers.csv room &quot;Room 01&quot; format &quot;%name%;%host%;%mac%&quot;
+
+* Uvozi datoteko CSV z imenom sobe v prvi stolpec:
+
+     %1 import computers-with-rooms.csv format &quot;%room%,%name%,%mac%&quot;
+
+* Uvozi besedilno datoteko s parom ključ/vrednost z uporabo regularnih izrazov:
+
+    %1 import hostlist.txt room &quot;Room 01&quot; regex &quot;^NAME:(%name%:.*)\s+HOST:(%host%:.*)$&quot;
+
+* Uvoz poljubno oblikovanih podatkov:
+
+    %1 import data.txt regex '^&quot;(%room%:[^&quot;]+)&quot;;&quot;(%host%:[a-z\d\.]+)&quot;.*$'
+	</translation>
     </message>
     <message>
         <source>Invalid type specified. Valid values are &quot;%1&quot; or &quot;%2&quot;.</source>
@@ -903,7 +927,24 @@ Examples:
     %1 export computers.csv room &quot;Room 01&quot; format &quot;%name%;%host%;%mac%&quot;
 
 </source>
-        <translation></translation>
+        <translation>
+UPORABA
+
+%1 export &lt;FILE&gt; [room &lt;ROOM&gt;] [format &lt;FORMAT-STRING-WITH-VARIABLES&gt;]
+
+Veljavne spremenljivke: %type% %name% %host% %mac% %room%
+
+Primeri:
+
+* Izvozi vse predmete v datoteko CSV:
+
+    %1 export objects.csv format &quot;%type%;%name%;%host%;%mac%&quot;
+
+* Izvozite vse računalnike v prostoru v datoteko CSV:
+
+    %1 export computers.csv room &quot;Room 01&quot; format &quot;%name%;%host%;%mac%&quot;
+
+</translation>
     </message>
     <message>
         <source>
@@ -924,7 +965,24 @@ Examples:
     %1 add computer &quot;Computer 01&quot; comp01.example.com 11:22:33:44:55:66 &quot;Room 01&quot;
 
 </source>
-        <translation></translation>
+        <translation>
+UPORABA
+
+%1 add &lt;TYPE&gt; &lt;NAME&gt; [&lt;HOST ADDRESS&gt; &lt;MAC ADDRESS&gt; &lt;PARENT&gt;]
+
+Doda objekt, kjer je TYPE lahko eden od &quot;%2&quot; ali &quot;%3&quot;. PARENT se lahko navede po imenu ali UUID.
+
+Primeri:
+
+* Dodaj sobo:
+
+    %1 add room &quot;Room 01&quot;
+
+* Dodaj računalnik v sobo &quot;Room 01&quot;:
+
+    %1 add computer &quot;Computer 01&quot; comp01.example.com 11:22:33:44:55:66 &quot;Room 01&quot;
+
+</translation>
     </message>
     <message>
         <source>
@@ -945,7 +1003,24 @@ Examples:
     %1 remove 068914fc-0f87-45df-a5b9-099a2a6d9141
 
 </source>
-        <translation></translation>
+        <translation>
+UPORABA
+
+%1 remove &lt;OBJECT&gt;
+
+Odstrani navedeni objekt iz imenika. OBJECT lahko določite z imenom ali UUID. Odstranjevanje sobe bo tudi odstranilo vse računalnike znotraj.
+
+Primeri:
+
+* Odstrani računalnik po imenu:
+
+    %1 remove &quot;Computer 01&quot;
+
+* Odstrani predmet po UUID:
+
+    %1 remove 068914fc-0f87-45df-a5b9-099a2a6d9141
+
+</translation>
     </message>
     <message>
         <source>Object UUID</source>
@@ -1495,7 +1570,7 @@ Examples:
     </message>
     <message>
         <source>Backend:</source>
-        <translation>Hrbtenica:</translation>
+        <translation>Ozadje:</translation>
     </message>
     <message>
         <source>Update interval:</source>
@@ -1581,7 +1656,7 @@ Examples:
     <name>InternetAccessControlDummy</name>
     <message>
         <source>This is the dummy backend which has no effect on internet access. Please choose a functional backend suitable for your operating system and environment. Visit &lt;a href=&quot;http://veyon.io&quot;&gt;http://veyon.io&lt;/a&gt; for more information on how to obtain additional backend plugins.</source>
-        <translation>To je neprava hrbtenica, ki nima vpliva na dostop do interneta. Prosimo, izberite funkcionalno hrbtno stran, ki ustreza vašemu operacijskemu sistemu in okolju. Obiščite &lt;a href=&quot;http://veyon.io&quot;&gt;http://veyon.io&lt;/a&gt; za več informacij o tem, kako pridobiti dodatne hrbtne vtičnike.</translation>
+        <translation>To je nepravo ozadje, ki nima vpliva na dostop do interneta. Prosimo, izberite funkcionalno hrbtno stran, ki ustreza vašemu operacijskemu sistemu in okolju. Obiščite &lt;a href=&quot;http://veyon.io&quot;&gt;http://veyon.io&lt;/a&gt; za več informacij o tem, kako pridobiti dodatne hrbtne vtičnike.</translation>
     </message>
     <message>
         <source>Internet access control not available</source>
@@ -1589,11 +1664,11 @@ Examples:
     </message>
     <message>
         <source>No internet access control backend has been configured. Please use the Veyon Configurator to change the configuration.</source>
-        <translation>Konfigurirano je bilo brez hrbtenice nadzora dostopa do interneta. Prosimo, uporabite Veyon konfiguratorja za spremembo konfiguracije.</translation>
+        <translation>Konfigurirano je bilo brez ozadja nadzora dostopa do interneta. Prosimo, uporabite Veyon konfiguratorja za spremembo konfiguracije.</translation>
     </message>
     <message>
         <source>Dummy backend for internet access control</source>
-        <translation>Neprava hrbtenica za nadzor dostopa do interneta</translation>
+        <translation>Nepravo ozadje za nadzor dostopa do interneta</translation>
     </message>
 </context>
 <context>
@@ -1901,51 +1976,51 @@ Examples:
     </message>
     <message>
         <source>Could not find a group with the name &quot;%1&quot;. Please check the group name or the group tree parameter.</source>
-        <translation></translation>
+        <translation>Ni bilo mogoče najti skupine z imenom &quot;%1&quot;. Preverite ime skupine ali parameter drevesa skupine.</translation>
     </message>
     <message>
         <source>Enter computer name</source>
-        <translation></translation>
+        <translation>Vnesite ime računalnika</translation>
     </message>
     <message>
         <source>Please enter a computer host name to query:</source>
-        <translation></translation>
+        <translation>Vnesite ime računalnika gostitelja za poizvedbo:</translation>
     </message>
     <message>
         <source>Invalid host name</source>
-        <translation></translation>
+        <translation>Neveljavno ime gostitelja</translation>
     </message>
     <message>
         <source>You configured computer host names to be stored as fully qualified domain names (FQDN) but entered a host name without domain.</source>
-        <translation></translation>
+        <translation>Nastavili ste imena računalniških gostiteljev, ki jih želite shraniti kot popolna imena domen (FQDN), vendar ste vnesli ime gostitelja brez domene.</translation>
     </message>
     <message>
         <source>You configured computer host names to be stored as simple host names without a domain name but entered a host name with a domain name part.</source>
-        <translation></translation>
+        <translation>Nastavili ste imena računalniških gostiteljev, ki jih želite shraniti kot preprosta imena gostiteljev brez imena domene, vendar ste vnesli ime gostitelja z delom imena domene.</translation>
     </message>
     <message>
         <source>computer objects</source>
-        <translation></translation>
+        <translation>računalniški predmeti</translation>
     </message>
     <message>
         <source>computer host name attribute</source>
-        <translation></translation>
+        <translation>atribut imena računalniškega gostitelja</translation>
     </message>
     <message>
         <source>Enter computer DN</source>
-        <translation></translation>
+        <translation>Vnesite DN računalnika</translation>
     </message>
     <message>
         <source>Please enter the DN of a computer whose MAC address to query:</source>
-        <translation></translation>
+        <translation>Vnesite DN računalnika, katerega naslov MAC je za poizvedbo:</translation>
     </message>
     <message>
         <source>computer MAC addresses</source>
-        <translation></translation>
+        <translation>računalnik MAC naslovov</translation>
     </message>
     <message>
         <source>computer MAC address attribute</source>
-        <translation></translation>
+        <translation>atribut računalnika MAC naslovov</translation>
     </message>
     <message>
         <source>users</source>
@@ -1961,47 +2036,47 @@ Examples:
     </message>
     <message>
         <source>Please enter a user login name whose group memberships to query:</source>
-        <translation></translation>
+        <translation>Prosimo, vnesite uporabniško ime za prijavo katerega člani skupine želite poizvedovati:</translation>
     </message>
     <message>
         <source>groups of user</source>
-        <translation></translation>
+        <translation>skupine uporabnika</translation>
     </message>
     <message>
         <source>user login attribute or group membership attribute</source>
-        <translation></translation>
+        <translation>atribut prijave uporabnika ali atribut članstva skupine </translation>
     </message>
     <message>
         <source>User not found</source>
-        <translation></translation>
+        <translation>Uporabnik ni najden</translation>
     </message>
     <message>
         <source>Could not find a user with the name &quot;%1&quot;. Please check the user name or the user tree parameter.</source>
-        <translation></translation>
+        <translation>Uporabnika z imenom &quot;%1&quot; ni bilo mogoče najti. Preverite uporabniško ime ali parameter drevesa uporabnika.</translation>
     </message>
     <message>
         <source>Enter host name</source>
-        <translation></translation>
+        <translation>Vnesite ime gostitelja</translation>
     </message>
     <message>
         <source>Please enter a computer host name whose group memberships to query:</source>
-        <translation></translation>
+        <translation>Vnesite ime računalnika gostitelja, katere člani skupine naj poizvedujejo:</translation>
     </message>
     <message>
         <source>groups of computer</source>
-        <translation></translation>
+        <translation>skupine računalnika</translation>
     </message>
     <message>
         <source>computer host name attribute or group membership attribute</source>
-        <translation></translation>
+        <translation>atribut imena računalniškega gostitelja ali atribut skupine članov</translation>
     </message>
     <message>
         <source>Computer not found</source>
-        <translation></translation>
+        <translation>Računalnika ni bilo mogoče najti</translation>
     </message>
     <message>
         <source>Could not find a computer with the host name &quot;%1&quot;. Please check the host name or the computer tree parameter.</source>
-        <translation></translation>
+        <translation>Ni bilo mogoče najti računalnika z imenom gostitelja &quot;%1&quot;. Preverite ime gostitelja ali parameter drevesa računalnika.</translation>
     </message>
     <message>
         <source>Enter computer IP address</source>
@@ -2009,15 +2084,15 @@ Examples:
     </message>
     <message>
         <source>Please enter a computer IP address which to resolve to an computer object:</source>
-        <translation></translation>
+        <translation>Vnesite IP naslov računalnika, ki ga želite razrešiti na računalniški objekt:</translation>
     </message>
     <message>
         <source>Host name lookup failed</source>
-        <translation></translation>
+        <translation>Iskanje imena gostitelja ni uspelo</translation>
     </message>
     <message>
         <source>Could not lookup host name for IP address %1. Please check your DNS server settings.</source>
-        <translation></translation>
+        <translation>Ne morem pogledati imena gostitelja za IP naslov %1. Preverite nastavitve strežnika DNS.</translation>
     </message>
     <message>
         <source>computers</source>
@@ -2025,298 +2100,316 @@ Examples:
     </message>
     <message>
         <source>LDAP %1 test failed</source>
-        <translation></translation>
+        <translation>Preizkus LDAP %1 ni uspel</translation>
     </message>
     <message>
         <source>Could not query any entries in configured %1. Please check the %1 parameter.
 
 %2</source>
-        <translation></translation>
+        <translation>Ne morem vnesti nobenih vnosov v poizvedbo v nastavljeno %1. Preverite parameter %1.
+
+%2</translation>
     </message>
     <message>
         <source>LDAP %1 test successful</source>
-        <translation></translation>
+        <translation>Preizkus LDAP %1 je uspel</translation>
     </message>
     <message>
         <source>The %1 has been queried successfully and %2 entries were found.</source>
-        <translation></translation>
+        <translation>%1 je bila uspešna poizvedba in ugotovljeno je, da je bilo %2 vnosov.</translation>
     </message>
     <message>
         <source>Could not query any %1. Please check the %2 parameter or enter the name of an existing object.
 
 %3</source>
-        <translation></translation>
+        <translation>Ni bilo mogoče vprašati nobenega %1. Preverite parameter %2 ali vnesite ime obstoječega predmeta.
+
+%3</translation>
     </message>
     <message>
         <source>%1 %2 have been queried successfully:
 
 %3</source>
-        <translation></translation>
+        <translation>%1 %2 je bilo uspešno vprašanih:
+
+%3</translation>
     </message>
     <message>
         <source>LDAP filter test failed</source>
-        <translation></translation>
+        <translation>Test LDAP filtra ni uspel</translation>
     </message>
     <message>
         <source>Could not query any %1 using the configured filter. Please check the LDAP filter for %1.
 
 %2</source>
-        <translation></translation>
+        <translation>Ni bilo mogoče izvesti poizvedbe %1 z uporabo nastavljenega filtra. Preverite filter LDAP za %1.
+
+%2</translation>
     </message>
     <message>
         <source>LDAP filter test successful</source>
-        <translation></translation>
+        <translation>Test LDAP filtra je uspel</translation>
     </message>
     <message>
         <source>%1 %2 have been queried successfully using the configured filter.</source>
-        <translation></translation>
+        <translation>%1 %2 je bilo uspešno vprašanih z uporabo nastavljenega filtra.</translation>
     </message>
     <message>
         <source>(only if different from group tree)</source>
-        <translation></translation>
+        <translation>(le, če je drugačen od drevesa skupine)</translation>
     </message>
     <message>
         <source>Computer group tree</source>
-        <translation></translation>
+        <translation>Drevo računalniške skupine</translation>
     </message>
     <message>
         <source>computer group tree</source>
-        <translation></translation>
+        <translation>drevo računalniške skupine</translation>
     </message>
     <message>
         <source>Filter for computers</source>
-        <translation></translation>
+        <translation>Filter za računalnike</translation>
     </message>
     <message>
         <source>e.g. room or computerLab</source>
-        <translation></translation>
+        <translation>npr. soba ali računalnikLab</translation>
     </message>
     <message>
         <source>List all members of a computer room</source>
-        <translation></translation>
+        <translation>Seznam vseh članov v računalniški sobi</translation>
     </message>
     <message>
         <source>List all computer rooms</source>
-        <translation></translation>
+        <translation>Seznam vseh računalniških sob</translation>
     </message>
     <message>
         <source>Enter computer room name</source>
-        <translation></translation>
+        <translation>Vnesite ime računalniške sobe</translation>
     </message>
     <message>
         <source>Please enter the name of a computer room (wildcards allowed):</source>
-        <translation></translation>
+        <translation>Vnesite ime računalniške sobe (dovoljeni so nadomestni znak):</translation>
     </message>
     <message>
         <source>computer rooms</source>
-        <translation></translation>
+        <translation>računalniške sobe</translation>
     </message>
     <message>
         <source>computer room attribute</source>
-        <translation></translation>
+        <translation>atribut računalniške sobe</translation>
     </message>
     <message>
         <source>Please enter the name of a computer room whose members to query:</source>
-        <translation></translation>
+        <translation>Vnesite ime računalniške sobe, katere člani lahko poizvedujejo:</translation>
     </message>
     <message>
         <source>computer room members</source>
-        <translation></translation>
+        <translation>člani računalniške sobe</translation>
     </message>
     <message>
         <source>computer group filter or computer room member aggregation</source>
-        <translation></translation>
+        <translation>filtriranje računalniških skupin ali združevanje članov računalniške sobe</translation>
     </message>
     <message>
         <source>Computer rooms</source>
-        <translation></translation>
+        <translation>Računalniške sobe</translation>
     </message>
     <message>
         <source>Integration tests</source>
-        <translation></translation>
+        <translation>Integracijski testi</translation>
     </message>
     <message>
         <source>Computer room attribute</source>
-        <translation></translation>
+        <translation>Atribut računalniške sobe</translation>
     </message>
     <message>
         <source>Aggregate computers in a room via:</source>
-        <translation></translation>
+        <translation>Združite računalnike v sobi preko:</translation>
     </message>
     <message>
         <source>Computer groups</source>
-        <translation></translation>
+        <translation>Računalniške skupine</translation>
     </message>
     <message>
         <source>Computer room attribute in computer objects</source>
-        <translation></translation>
+        <translation>Atribut računalniške sobe v računalniških predmetih</translation>
     </message>
     <message>
         <source>Test not applicable</source>
-        <translation></translation>
+        <translation>Preskus ni uporaben</translation>
     </message>
     <message>
         <source>Computer room name attribute</source>
-        <translation></translation>
+        <translation>Atribut imena računalniške sobe</translation>
     </message>
     <message>
         <source>e.g. name or description</source>
-        <translation></translation>
+        <translation>npr. ime ali opis</translation>
     </message>
     <message>
         <source>Filter for computer containers</source>
-        <translation></translation>
+        <translation>Filter za računalniške vsebnike</translation>
     </message>
     <message>
         <source>Computer containers or OUs</source>
-        <translation></translation>
+        <translation>Računalniški vsebniki OU</translation>
     </message>
     <message>
         <source>Please change the computer room settings to use computer groups or computer containers as computer rooms. Then the specified attribute instead of the common name of computer groups or container objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
-        <translation></translation>
+        <translation>Prosimo, spremenite nastavitve računalniške sobe za uporabo računalniških skupin ali računalniških vsebnikov kot računalniške sobe. Nato bo naveden atribut namesto skupnega imena računalniških skupin ali vsebnikov predmetov za poizvedbe. V nasprotnem primeru ne potrebujete nastavitve tega atributa.</translation>
     </message>
     <message>
         <source>Please change the computer room settings below to use computer containers as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
-        <translation></translation>
+        <translation>Prosimo, spremenite nastavitve računalniške sobe spodaj za uporabo računalniških vsebnikov kot računalniških sob. V nasprotnem primeru ne potrebujete nastavitve tega filtra.</translation>
     </message>
     <message>
         <source>Connection security</source>
-        <translation></translation>
+        <translation>Varnost povezave</translation>
     </message>
     <message>
         <source>TLS certificate verification</source>
-        <translation></translation>
+        <translation>Preverjanje TLS certifikata</translation>
     </message>
     <message>
         <source>System defaults</source>
-        <translation></translation>
+        <translation>Sistemsko privzeto</translation>
     </message>
     <message>
         <source>Never (insecure!)</source>
-        <translation></translation>
+        <translation>Nikoli (nezanesljivo!)</translation>
     </message>
     <message>
         <source>Custom CA certificate file</source>
-        <translation></translation>
+        <translation>CA certifikatna datoteka po meri</translation>
     </message>
     <message>
         <source>None</source>
-        <translation></translation>
+        <translation>Brez</translation>
     </message>
     <message>
         <source>TLS</source>
-        <translation></translation>
+        <translation>TLS</translation>
     </message>
     <message>
         <source>SSL</source>
-        <translation></translation>
+        <translation>SSL</translation>
     </message>
     <message>
         <source>e.g. (objectClass=computer)</source>
-        <translation></translation>
+        <translation>npr. (objectClass = računalnik)</translation>
     </message>
     <message>
         <source>e.g. (objectClass=group)</source>
-        <translation></translation>
+        <translation>npr. (objectClass = skupina)</translation>
     </message>
     <message>
         <source>e.g. (objectClass=person)</source>
-        <translation></translation>
+        <translation>npr. (objectClass = oseba)</translation>
     </message>
     <message>
         <source>e.g. (objectClass=room) or (objectClass=computerLab)</source>
-        <translation></translation>
+        <translation>npr. (objectClass = soba) ali npr. (objectClass = računalnikLab)</translation>
     </message>
     <message>
         <source>e.g. (objectClass=container) or (objectClass=organizationalUnit)</source>
-        <translation></translation>
+        <translation>npr. (objectClass = vsebnik) ali npr. (objectClass = organizacijska enota)</translation>
     </message>
     <message>
         <source>Could not query the configured base DN. Please check the base DN parameter.
 
 %1</source>
-        <translation></translation>
+        <translation>Ni mogoča poizvedba nastavljene base DN. Preverite base DN parameter.
+
+%1</translation>
     </message>
     <message>
         <source>The LDAP base DN has been queried successfully. The following entries were found:
 
 %1</source>
-        <translation></translation>
+        <translation>Poizvedba LDAP base DN je bila uspešna. Ugotovljeni so bili naslednji vnosi:
+
+%1</translation>
     </message>
     <message>
         <source>Could not query the base DN via naming contexts. Please check the naming context attribute parameter.
 
 %1</source>
-        <translation></translation>
+        <translation>Neuspešna poizvedba base DN preko kontekstnih poimenovanj . Preverite parameter atributa konteksta poimenovanja.
+
+%1</translation>
     </message>
     <message>
         <source>Certificate files (*.pem)</source>
-        <translation></translation>
+        <translation>Datoteke potrdil (*.pem)</translation>
     </message>
     <message>
         <source>Could not connect to the LDAP server. Please check the server parameters.
 
 %1</source>
-        <translation></translation>
+        <translation>Povezave s strežnikom LDAP ni bilo mogoče vzpostaviti. Preverite parametre strežnika.
+
+%1</translation>
     </message>
     <message>
         <source>Could not bind to the LDAP server. Please check the server parameters and bind credentials.
 
 %1</source>
-        <translation></translation>
+        <translation>Ne morem se povezati na strežnik LDAP. Preverite parametre strežnika in povezovalne poverilnice.
+
+%1</translation>
     </message>
     <message>
         <source>Encryption protocol</source>
-        <translation></translation>
+        <translation>Protokol šifriranja</translation>
     </message>
 </context>
 <context>
     <name>LdapDirectory</name>
     <message>
         <source>LDAP error description: %1</source>
-        <translation></translation>
+        <translation>Opis napake LDAP: %1</translation>
     </message>
     <message>
         <source>No LDAP error description available</source>
-        <translation></translation>
+        <translation>Na voljo ni opisa napake LDAP</translation>
     </message>
 </context>
 <context>
     <name>LdapPlugin</name>
     <message>
         <source>Auto-configure the base DN via naming context</source>
-        <translation></translation>
+        <translation>Samodejno konfiguriraj base DN preko konteksta imenovanja</translation>
     </message>
     <message>
         <source>Query objects from LDAP directory</source>
-        <translation></translation>
+        <translation>Poizvedba predmetov iz imenika LDAP</translation>
     </message>
     <message>
         <source>Show help about command</source>
-        <translation></translation>
+        <translation>Prikaži pomoč o ukazu</translation>
     </message>
     <message>
         <source>Commands for configuring and testing LDAP/AD integration</source>
-        <translation></translation>
+        <translation>Ukazi za konfiguriranje in testiranje integracije LDAP/AD</translation>
     </message>
     <message>
         <source>Provide LDAP/AD integration for Veyon</source>
-        <translation></translation>
+        <translation>Zagotovite integracijo LDAP/AD za Veyon</translation>
     </message>
     <message>
         <source>LDAP (load computers and rooms from LDAP/AD)</source>
-        <translation></translation>
+        <translation>LDAP (naloži računalnike in sobe iz LDAP/AD)</translation>
     </message>
     <message>
         <source>LDAP (load users and groups from LDAP/AD)</source>
-        <translation></translation>
+        <translation>LDAP (naloži uporabnike in skupine iz LDAP/AD)</translation>
     </message>
 </context>
 <context>
     <name>LinuxPlatformPlugin</name>
     <message>
         <source>Plugin implementing abstract functions for the Linux platform</source>
-        <translation></translation>
+        <translation>Vtičnik izvajanja abstraktnih funkcij za platformo Linux</translation>
     </message>
 </context>
 <context>
@@ -2327,7 +2420,7 @@ Examples:
     </message>
     <message>
         <source>Disable balloon tooltips</source>
-        <translation></translation>
+        <translation>Onemogoči namige v balončkih </translation>
     </message>
     <message>
         <source>Show icons only</source>
@@ -2350,15 +2443,15 @@ Examples:
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Datoteka</translation>
+        <translation>Datoteka (&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Pomoč</translation>
+        <translation>Pomoč (&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Izhod</translation>
+        <translation>Končaj (&amp;Q)</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -2378,11 +2471,11 @@ Examples:
     </message>
     <message>
         <source>About Qt</source>
-        <translation>Kaj je Qt</translation>
+        <translation>Vizitka Qt</translation>
     </message>
     <message>
         <source>Authentication impossible</source>
-        <translation>Avtentifikacija NI možna</translation>
+        <translation>Preverjanje pristnosti ni mogoče</translation>
     </message>
     <message>
         <source>Remote control</source>
@@ -2390,11 +2483,11 @@ Examples:
     </message>
     <message>
         <source>Quit</source>
-        <translation>Zapusti</translation>
+        <translation>Končaj</translation>
     </message>
     <message>
         <source>Configuration not writable</source>
-        <translation>Nastavitve niso pisljive</translation>
+        <translation>Nastavitve niso zapisljive</translation>
     </message>
     <message>
         <source>Load settings from file</source>
@@ -2414,19 +2507,19 @@ Examples:
     </message>
     <message>
         <source>Veyon Configurator</source>
-        <translation></translation>
+        <translation>Veyon konfigurator</translation>
     </message>
     <message>
         <source>Service</source>
-        <translation></translation>
+        <translation>Storitev</translation>
     </message>
     <message>
         <source>Master</source>
-        <translation></translation>
+        <translation>Glavni</translation>
     </message>
     <message>
         <source>Access control</source>
-        <translation></translation>
+        <translation>Nadzor dostopa</translation>
     </message>
     <message>
         <source>About Veyon</source>
@@ -2434,19 +2527,19 @@ Examples:
     </message>
     <message>
         <source>Auto</source>
-        <translation></translation>
+        <translation>Samodejno</translation>
     </message>
     <message>
         <source>Computer rooms</source>
-        <translation></translation>
+        <translation>Računalniške sobe</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Splošno</translation>
+        <translation>Vizitka</translation>
     </message>
     <message>
         <source>%1 Configurator %2</source>
-        <translation></translation>
+        <translation>%1 konfigurator %2</translation>
     </message>
     <message>
         <source>JSON files (*.json)</source>
@@ -2454,15 +2547,15 @@ Examples:
     </message>
     <message>
         <source>The local configuration backend reported that the configuration is not writable! Please run the %1 Configurator with higher privileges.</source>
-        <translation></translation>
+        <translation>Lokalno konfiguracijsko ozadje je sporočilo, da konfiguracije ni mogoče zapisati! Konfiguratorja %1 zaženite z višjimi pravicami.</translation>
     </message>
     <message>
         <source>%1 Master Control</source>
-        <translation></translation>
+        <translation>%1 glavni nadzor</translation>
     </message>
     <message>
         <source>No authentication key files were found or your current ones are outdated. Please create new key files using the %1 Configurator. Alternatively set up logon authentication using the %1 Configurator. Otherwise you won&apos;t be able to access computers using %1.</source>
-        <translation></translation>
+        <translation>Datoteke ključa za preverjanje pristnosti niso bile najdene, ali so vaše trenutne zastarele. Ustvarite nove datoteke ključa z uporabo konfiguratorja %1. Druga možnost je nastaviti preverjanje pristnosti pri prijavi z uporabo %1 konfiguratorja. V nasprotnem primeru ne boste mogli dostopati do računalnikov z uporabo %1.</translation>
     </message>
     <message>
         <source>Access denied</source>
@@ -2470,7 +2563,7 @@ Examples:
     </message>
     <message>
         <source>According to the local configuration you&apos;re not allowed to access computers in the network. Please log in with a different account or let your system administrator check the local configuration.</source>
-        <translation></translation>
+        <translation>Glede na lokalno konfiguracijo nimate dovoljenega dostopa do računalnikov v omrežju. Prijavite se z drugim računom ali pustite skrbniku sistema, da preveri lokalno konfiguracijo.</translation>
     </message>
     <message>
         <source>Screenshots</source>
@@ -2478,62 +2571,62 @@ Examples:
     </message>
     <message>
         <source>Feature active</source>
-        <translation></translation>
+        <translation>Aktivna funkcija</translation>
     </message>
     <message>
         <source>The feature &quot;%1&quot; is still active. Please stop it before closing %2.</source>
-        <translation></translation>
+        <translation>Funkcija &quot;%1&quot; je še vedno aktivna. Pred zapiranjem %2 jo ustavite.</translation>
     </message>
     <message>
         <source>Reset configuration</source>
-        <translation></translation>
+        <translation>Ponastavitev konfiguracije</translation>
     </message>
     <message>
         <source>Do you really want to reset the local configuration and revert all settings to their defaults?</source>
-        <translation></translation>
+        <translation>Ali res želite ponastaviti lokalno konfiguracijo in spremeniti vse nastavitve na njihove privzete nastavitve?</translation>
     </message>
     <message>
         <source>Search users and computers</source>
-        <translation></translation>
+        <translation>Iskanje uporabnikov in računalnikov</translation>
     </message>
     <message>
         <source>Adjust optimal size</source>
-        <translation></translation>
+        <translation>Prilagodi optimalno velikost</translation>
     </message>
     <message>
         <source>Align computers to grid</source>
-        <translation></translation>
+        <translation>Poravnaj računalnike z mrežo</translation>
     </message>
     <message>
         <source>Use custom computer placement</source>
-        <translation></translation>
+        <translation>Uporabi postavitev računalnika po meri</translation>
     </message>
     <message>
         <source>%1 Configurator</source>
-        <translation></translation>
+        <translation>%1 konfigurator</translation>
     </message>
     <message>
         <source>Insufficient privileges</source>
-        <translation></translation>
+        <translation>Nezadostni privilegiji</translation>
     </message>
     <message>
         <source>Could not start with administrative privileges. Please make sure a sudo-like program is installed for your desktop environment! The program will be run with normal user privileges.</source>
-        <translation></translation>
+        <translation>Ni bilo mogoče začeti z administrativnimi pravicami. Prosimo, prepričajte se, da je podoben program nameščen za vaše namizno okolje! Program bo deloval z običajnimi uporabniškimi pravicami.</translation>
     </message>
     <message>
         <source>Only show powered on computers</source>
-        <translation></translation>
+        <translation>Pokaži samo priklope na računalnikih</translation>
     </message>
     <message>
         <source>&amp;Save settings to file</source>
-        <translation></translation>
+        <translation>&amp;Shrani nastavitve v datoteko</translation>
     </message>
 </context>
 <context>
     <name>MasterConfigurationPage</name>
     <message>
         <source>Directories</source>
-        <translation>Direktoriji</translation>
+        <translation>Imeniki</translation>
     </message>
     <message>
         <source>...</source>
@@ -2541,31 +2634,31 @@ Examples:
     </message>
     <message>
         <source>User configuration</source>
-        <translation></translation>
+        <translation>Uporabniška konfiguracija</translation>
     </message>
     <message>
         <source>Feature on computer double click:</source>
-        <translation></translation>
+        <translation>Funkcija dvojnega klika na računalniku:</translation>
     </message>
     <message>
         <source>Automatically switch to current room at start</source>
-        <translation></translation>
+        <translation>Samodejno preklopi na trenutno sobo ob zagonu</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation></translation>
+        <translation>Funkcije</translation>
     </message>
     <message>
         <source>All features</source>
-        <translation></translation>
+        <translation>Vse funkcije</translation>
     </message>
     <message>
         <source>Disabled features</source>
-        <translation></translation>
+        <translation>Onemogoči funkcije</translation>
     </message>
     <message>
         <source>Perform access control at program start</source>
-        <translation></translation>
+        <translation>Izvedi nadzor dostopa ob zagonu programa</translation>
     </message>
     <message>
         <source>Screenshots</source>
@@ -2573,11 +2666,11 @@ Examples:
     </message>
     <message>
         <source>&lt;no feature&gt;</source>
-        <translation></translation>
+        <translation>&lt;brez funkcije&gt;</translation>
     </message>
     <message>
         <source>Automatically adjust computer thumbnail size at start</source>
-        <translation></translation>
+        <translation>Samodejno prilagodi velikost sličic računalnika ob zagonu</translation>
     </message>
     <message>
         <source>Basic settings</source>
@@ -2585,35 +2678,35 @@ Examples:
     </message>
     <message>
         <source>Behaviour</source>
-        <translation></translation>
+        <translation>Obnašanje</translation>
     </message>
     <message>
         <source>Enforce selected mode for client computers</source>
-        <translation></translation>
+        <translation>Sproži izbrani način za odjemalske računalnike</translation>
     </message>
     <message>
         <source>Only show current room</source>
-        <translation>Prikaz samo trenutne sobe</translation>
+        <translation>Prikaz samo trenutno sobo</translation>
     </message>
     <message>
         <source>Allow adding rooms manually</source>
-        <translation></translation>
+        <translation>Dovoli dodajanje prostorov ročno</translation>
     </message>
     <message>
         <source>Hide local computer</source>
-        <translation></translation>
+        <translation>Skrij lokalni računalnik</translation>
     </message>
     <message>
         <source>Hide empty rooms</source>
-        <translation></translation>
+        <translation>Skrij prazne sobe</translation>
     </message>
     <message>
         <source>Hide computer filter field</source>
-        <translation></translation>
+        <translation>Skrij polje računalniškega filtra</translation>
     </message>
     <message>
         <source>Actions such as rebooting or powering down computers</source>
-        <translation></translation>
+        <translation>Ukrepi, kot so ponovni zagon ali izklop računalnikov</translation>
     </message>
     <message>
         <source>Show confirmation dialog for potential dangerous actions</source>
@@ -2625,47 +2718,47 @@ Examples:
     </message>
     <message>
         <source>Background color</source>
-        <translation></translation>
+        <translation>Barva ozadja</translation>
     </message>
     <message>
         <source>Thumbnail update interval</source>
-        <translation></translation>
+        <translation>Interval posodabljanja sličic</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <source>Program start</source>
-        <translation></translation>
+        <translation>Zagon programa</translation>
     </message>
     <message>
         <source>Modes and features</source>
-        <translation></translation>
+        <translation>Načini in funkcije</translation>
     </message>
     <message>
         <source>User and computer name</source>
-        <translation></translation>
+        <translation>Ime uporabnika in računalnika</translation>
     </message>
     <message>
         <source>Only user name</source>
-        <translation></translation>
+        <translation>Samo uporabniško ime</translation>
     </message>
     <message>
         <source>Only computer name</source>
-        <translation></translation>
+        <translation>Samo ime računalnika</translation>
     </message>
     <message>
         <source>Computer thumbnail caption</source>
-        <translation></translation>
+        <translation>Napis sličice računalnika</translation>
     </message>
     <message>
         <source>Computer rooms</source>
-        <translation></translation>
+        <translation>Računalniške sobe</translation>
     </message>
     <message>
         <source>Automatically open computer rooms widget</source>
-        <translation></translation>
+        <translation>Samodejno odpri pripomoček računalniške sobe</translation>
     </message>
 </context>
 <context>
@@ -2676,18 +2769,18 @@ Examples:
     </message>
     <message>
         <source>Builtin monitoring mode</source>
-        <translation></translation>
+        <translation>Vgrajen način nadzora </translation>
     </message>
     <message>
         <source>This is the default mode and allows you to monitor all computers in one or more rooms.</source>
-        <translation></translation>
+        <translation>To je privzeti način in vam omogoča spremljanje vseh računalnikov v eni ali več sobah.</translation>
     </message>
 </context>
 <context>
     <name>NetworkObjectTreeModel</name>
     <message>
         <source>Room/Computer</source>
-        <translation></translation>
+        <translation>Soba/računalnik</translation>
     </message>
 </context>
 <context>
@@ -2702,19 +2795,19 @@ Examples:
     </message>
     <message>
         <source>Veyon Logon</source>
-        <translation></translation>
+        <translation>Veyon prijava</translation>
     </message>
     <message>
         <source>Authentication error</source>
-        <translation></translation>
+        <translation>Napaka preverjanja pristnosti</translation>
     </message>
     <message>
         <source>Logon failed with given username and password. Please try again!</source>
-        <translation></translation>
+        <translation>Prijava z neodobrenim uporabniškim imenom in geslom ni uspela. Prosim, poskusite ponovno!</translation>
     </message>
     <message>
         <source>Please enter your username and password in order to access computers.</source>
-        <translation>Vnesite uporabniško ime in geslo za dostop do računalnikov</translation>
+        <translation>Vnesite svoje uporabniško ime in geslo za dostop do računalnikov.</translation>
     </message>
 </context>
 <context>
@@ -2725,7 +2818,7 @@ Examples:
     </message>
     <message>
         <source>Click this button to power on all computers. This way you do not have to power on each computer by hand.</source>
-        <translation>Tipka za vklop vseh računalnikov. Tako vam ni potreba prižigati vsakega računalnika posebej.</translation>
+        <translation>Kliknite ta gumb za vklop vseh računalnikih. Na ta način vam ni treba ročno vklapljati vsakega računalnika.</translation>
     </message>
     <message>
         <source>Reboot</source>
@@ -2733,15 +2826,15 @@ Examples:
     </message>
     <message>
         <source>Click this button to reboot all computers.</source>
-        <translation>Ponovni zagon vseh računalnikov.</translation>
+        <translation>Kliknite ta gumb, če želite znova zagnati vse računalnike.</translation>
     </message>
     <message>
         <source>Power down</source>
-        <translation>Izključi</translation>
+        <translation>Izklopi</translation>
     </message>
     <message>
         <source>Click this button to power down all computers. This way you do not have to power down each computer by hand.</source>
-        <translation></translation>
+        <translation>Kliknite ta gumb, da izklopite vse računalnike. Na ta način vam ni treba ročno izklopiti vsakega računalnika.</translation>
     </message>
     <message>
         <source>Power on/down or reboot a computer</source>
@@ -2757,22 +2850,22 @@ Examples:
     </message>
     <message>
         <source>Do you really want to reboot the selected computers?</source>
-        <translation></translation>
+        <translation>Ali res želite ponovno zagnati izbrane računalnike?</translation>
     </message>
     <message>
         <source>Do you really want to power down the selected computer?</source>
-        <translation>Ste prepričani, da želite ugasniti izbrani računalnik?</translation>
+        <translation>Ste prepričani, da želite izklopiti izbrani računalnik?</translation>
     </message>
 </context>
 <context>
     <name>RemoteAccessFeaturePlugin</name>
     <message>
         <source>Remote view</source>
-        <translation></translation>
+        <translation>Oddaljeni pogled</translation>
     </message>
     <message>
         <source>Open a remote view for a computer without interaction.</source>
-        <translation></translation>
+        <translation>Odpri oddaljeni pogled za računalnik brez interakcije.</translation>
     </message>
     <message>
         <source>Remote control</source>
@@ -2780,30 +2873,30 @@ Examples:
     </message>
     <message>
         <source>Open a remote control window for a computer.</source>
-        <translation></translation>
+        <translation>Odpri okno daljinskega upravljalnika za računalnik.</translation>
     </message>
     <message>
         <source>Remote access</source>
-        <translation></translation>
+        <translation>Oddaljen dostop</translation>
     </message>
     <message>
         <source>Remote view or control a computer</source>
-        <translation></translation>
+        <translation>Oddaljeni pogled ali nadzor računalnika</translation>
     </message>
     <message>
         <source>Please enter the hostname or IP address of the computer to access:</source>
-        <translation></translation>
+        <translation>Vnesite ime gostitelja ali naslov IP računalnika za dostop:</translation>
     </message>
     <message>
         <source>Show help about command</source>
-        <translation></translation>
+        <translation>Prikaži pomoč o ukazu</translation>
     </message>
 </context>
 <context>
     <name>RemoteAccessWidget</name>
     <message>
         <source>%1 - %2 Remote Access</source>
-        <translation></translation>
+        <translation>%1 - %2 oddaljen dostop</translation>
     </message>
 </context>
 <context>
@@ -2881,18 +2974,18 @@ Examples:
     <name>RoomSelectionDialog</name>
     <message>
         <source>Room selection</source>
-        <translation></translation>
+        <translation>Izbira sobe</translation>
     </message>
     <message>
         <source>enter search filter...</source>
-        <translation></translation>
+        <translation>vnesi iskalni filter...</translation>
     </message>
 </context>
 <context>
     <name>RunProgramDialog</name>
     <message>
         <source>Please enter the programs or commands to run on the selected computer(s). You can separate multiple programs/commands by line.</source>
-        <translation></translation>
+        <translation>Prosimo, vnesite programe ali ukaze, ki se izvajajo v izbranih računalnikih. Več programov / ukazov lahko ločite po vrstici.</translation>
     </message>
     <message>
         <source>Run programs</source>
@@ -2900,7 +2993,7 @@ Examples:
     </message>
     <message>
         <source>e.g. &quot;C:\Program Files\VideoLAN\VLC\vlc.exe&quot;</source>
-        <translation></translation>
+        <translation>npr. &quot;C:\Program Files\VideoLAN\VLC\vlc.exe&quot;</translation>
     </message>
 </context>
 <context>
@@ -2919,7 +3012,7 @@ Examples:
     </message>
     <message>
         <source>To reclaim all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screens are blacked.</source>
-        <translation></translation>
+        <translation>Če želite povrniti celotno pozornost vseh uporabnikov, lahko z uporabo tega gumba zaklenete njihove računalnike. V tem načinu so vse vhodne naprave zaklenjene in zasloni so črni.</translation>
     </message>
 </context>
 <context>
@@ -2930,7 +3023,7 @@ Examples:
     </message>
     <message>
         <source>Could not take a screenshot as directory %1 doesn&apos;t exist and couldn&apos;t be created.</source>
-        <translation></translation>
+        <translation>Ni mogoče vzeti posnetka zaslona, ker imenik %1 ne obstaja in ga ni mogoče ustvariti.</translation>
     </message>
     <message>
         <source>Screenshot</source>
@@ -2945,19 +3038,19 @@ Examples:
     </message>
     <message>
         <source>Use this function to take a screenshot of selected computers.</source>
-        <translation></translation>
+        <translation>To funkcijo uporabite za posnetek zaslona izbranih računalnikov.</translation>
     </message>
     <message>
         <source>Screenshots taken</source>
-        <translation>Posnetki zaslona</translation>
+        <translation>Vzeti posnetki zaslona</translation>
     </message>
     <message>
         <source>Screenshot of %1 computer have been taken successfully.</source>
-        <translation>Posnetek zaslona računalnika %1 uspešno narejen.</translation>
+        <translation>Posnetek zaslona računalnika %1 uspešno sprejet.</translation>
     </message>
     <message>
         <source>Take screenshots of computers and save them locally.</source>
-        <translation></translation>
+        <translation>Posnemite zaslone računalnikov in jih shranite lokalno.</translation>
     </message>
 </context>
 <context>
@@ -2984,7 +3077,7 @@ Examples:
     </message>
     <message>
         <source>All screenshots taken by you are listed here. You can take screenshots by clicking the &quot;Screenshot&quot; item in the context menu of a computer. The screenshots can be managed using the buttons below.</source>
-        <translation></translation>
+        <translation>Vsi posnetke zaslona, ki ste jih naredili, so navedeni tukaj. Lahko snamate posnetke zaslona s klikom na postavko &quot;Posnetek zaslona&quot; v kontekstnem meniju računalnika. S posnetki zaslonov lahko upravljate z uporabo spodnjih gumbov.</translation>
     </message>
     <message>
         <source>Computer:</source>
@@ -3007,7 +3100,7 @@ Examples:
     </message>
     <message>
         <source>Start service</source>
-        <translation>Zaženi servis</translation>
+        <translation>Zaženi storitev</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -3015,7 +3108,7 @@ Examples:
     </message>
     <message>
         <source>Stop service</source>
-        <translation>Ustavi servis</translation>
+        <translation>Ustavi storitev</translation>
     </message>
     <message>
         <source>State:</source>
@@ -3023,7 +3116,7 @@ Examples:
     </message>
     <message>
         <source>Enable SAS generation by software (Ctrl+Alt+Del)</source>
-        <translation></translation>
+        <translation>Omogoči generiranje SAS s programsko opremo (Ctrl+Alt+Del)</translation>
     </message>
     <message>
         <source>Network</source>
@@ -3039,11 +3132,11 @@ Examples:
     </message>
     <message>
         <source>Allow connections from localhost only</source>
-        <translation>Dovoli povezave samo iz localhost</translation>
+        <translation>Omogočite povezave samo z lokalnega gostitelja</translation>
     </message>
     <message>
         <source>Internal VNC server port</source>
-        <translation></translation>
+        <translation>Vrata notranjega strežnika VNC</translation>
     </message>
     <message>
         <source>VNC server</source>
@@ -3055,11 +3148,11 @@ Examples:
     </message>
     <message>
         <source>Restart %1 Service</source>
-        <translation></translation>
+        <translation>Ponovno zaženi %1 storitev</translation>
     </message>
     <message>
         <source>All settings were saved successfully. In order to take effect the %1 service needs to be restarted. Restart it now?</source>
-        <translation></translation>
+        <translation>Vse nastavitve so bile uspešno shranjene. Za uveljavitev je treba storitev %1 ponovno zagnati. Ali znova zaženem zdaj?</translation>
     </message>
     <message>
         <source>Running</source>
@@ -3067,131 +3160,132 @@ Examples:
     </message>
     <message>
         <source>Feature manager port</source>
-        <translation></translation>
+        <translation>Vrata upravitelja funkcij</translation>
     </message>
     <message>
         <source>Primary service port</source>
-        <translation></translation>
+        <translation>Primarna vrata storitve </translation>
     </message>
     <message>
         <source>Enabling this option will make the service launch a server process for every interactive session on a computer.
 Typically this is required to support terminal servers.</source>
-        <translation></translation>
+        <translation>Če omogočite to možnost, bo storitev zagnala proces strežnika za vsako interaktivno sejo v računalniku.
+Običajno je to potrebno za podporo terminalskih strežnikov.</translation>
     </message>
     <message>
         <source>Multi session support (experimental)</source>
-        <translation></translation>
+        <translation>Podpora za več sej (eksperimentalno)</translation>
     </message>
     <message>
         <source>Show notification on remote connection</source>
-        <translation></translation>
+        <translation>Prikaži obvestilo o oddaljeni povezavi</translation>
     </message>
     <message>
         <source>Show notification on failed authentication attempts</source>
-        <translation></translation>
+        <translation>Prikaži obvestilo o neuspešnih poskusih preverjanja pristnosti</translation>
     </message>
 </context>
 <context>
     <name>ServiceControl</name>
     <message>
         <source>Starting service %1</source>
-        <translation></translation>
+        <translation>Zagon storitve %1</translation>
     </message>
     <message>
         <source>Stopping service %1</source>
-        <translation></translation>
+        <translation>Zaustavitev storitve %1</translation>
     </message>
     <message>
         <source>Registering service %1</source>
-        <translation></translation>
+        <translation>Registracija storitve %1</translation>
     </message>
     <message>
         <source>Unregistering service %1</source>
-        <translation></translation>
+        <translation>Odregistracija storitve %1</translation>
     </message>
     <message>
         <source>Service control</source>
-        <translation></translation>
+        <translation>Nadzor storitve</translation>
     </message>
 </context>
 <context>
     <name>ServiceControlPlugin</name>
     <message>
         <source>Service is running</source>
-        <translation></translation>
+        <translation>Storitev teče</translation>
     </message>
     <message>
         <source>Service is not running</source>
-        <translation></translation>
+        <translation>Storitev ne teče</translation>
     </message>
     <message>
         <source>Configure and control Veyon service</source>
-        <translation></translation>
+        <translation>Konfigurirajte in nadzirajte Veyon storitev</translation>
     </message>
     <message>
         <source>Register Veyon Service</source>
-        <translation></translation>
+        <translation>Registriraj Veyon storitev</translation>
     </message>
     <message>
         <source>Unregister Veyon Service</source>
-        <translation></translation>
+        <translation>Odregistriraj Veyon storitev</translation>
     </message>
     <message>
         <source>Start Veyon Service</source>
-        <translation></translation>
+        <translation>Začni Veyon storitev</translation>
     </message>
     <message>
         <source>Stop Veyon Service</source>
-        <translation></translation>
+        <translation>Zaustavi Veyon storitev</translation>
     </message>
     <message>
         <source>Restart Veyon Service</source>
-        <translation></translation>
+        <translation>Ponovno zaženi Veyon storitev</translation>
     </message>
     <message>
         <source>Query status of Veyon Service</source>
-        <translation></translation>
+        <translation>Stanje poizvedbe storitve Veyon</translation>
     </message>
     <message>
         <source>Commands for configuring and controlling Veyon Service</source>
-        <translation></translation>
+        <translation>Ukazi za konfiguracijo in nadzor Veyon storitve</translation>
     </message>
 </context>
 <context>
     <name>ShellCommandLinePlugin</name>
     <message>
         <source>Run command file</source>
-        <translation></translation>
+        <translation>Zaženi ukazno datoteko</translation>
     </message>
     <message>
         <source>File &quot;%1&quot; does not exist!</source>
-        <translation></translation>
+        <translation>Datoteka &quot;%1&quot; ne obstaja!</translation>
     </message>
     <message>
         <source>Interactive shell and script execution for Veyon Control</source>
-        <translation></translation>
+        <translation>Interaktivna lupina in izvedba skripte za nadzor Veyon</translation>
     </message>
     <message>
         <source>Commands for shell functionalities</source>
-        <translation></translation>
+        <translation>Ukazi za funkcionalnosti lupine</translation>
     </message>
 </context>
 <context>
     <name>SystemTrayIcon</name>
     <message>
         <source>System tray icon</source>
-        <translation></translation>
+        <translation>Ikona sistemske vrstice</translation>
     </message>
 </context>
 <context>
     <name>SystemUserGroupsPlugin</name>
     <message>
         <source>User groups backend for system user groups</source>
-        <translation></translation>
+        <translation>Uporabniške skupine ozadja za skupine uporabnikov sistema</translation>
     </message>
     <message>
         <source>Default (system user groups)</source>
-        <translation></translation>
+        <translation>Privzeto (skupine uporabnikov sistema)</translation>
     </message>
 </context>
 <context>
@@ -3232,7 +3326,7 @@ Typically this is required to support terminal servers.</source>
     </message>
     <message>
         <source>Poll full screen (leave this enabled per default)</source>
-        <translation>Prenašaj polni zaslon (vklopljeno po privzetem)</translation>
+        <translation>Prenašaj polni zaslon (pustite to omogočeno na privzeto)</translation>
     </message>
     <message>
         <source>Low accuracy (turbo mode)</source>
@@ -3240,11 +3334,11 @@ Typically this is required to support terminal servers.</source>
     </message>
     <message>
         <source>Builtin UltraVNC server configuration</source>
-        <translation></translation>
+        <translation>Vgrajena konfiguracija UltraVNC strežnika</translation>
     </message>
     <message>
         <source>Enable dual monitor support</source>
-        <translation>Omogoči dvozaslonski način</translation>
+        <translation>Omogoči podporo dvojnega zaslona</translation>
     </message>
 </context>
 <context>
@@ -3255,76 +3349,76 @@ Typically this is required to support terminal servers.</source>
     </message>
     <message>
         <source>Could not save your personal settings! Please check the user configuration file path using the %1 Configurator.</source>
-        <translation></translation>
+        <translation>Vaših osebnih nastavitev ni bilo mogoče shraniti! Preverite pot do konfiguracijske datoteke uporabnika s konfiguratorjem %1.</translation>
     </message>
 </context>
 <context>
     <name>UserSessionControl</name>
     <message>
         <source>User session control</source>
-        <translation></translation>
+        <translation>Nadzor seje uporabnika</translation>
     </message>
     <message>
         <source>Click this button to logout users from all computers.</source>
-        <translation></translation>
+        <translation>Kliknite ta gumb, če želite odjaviti uporabnike iz vseh računalnikov.</translation>
     </message>
     <message>
         <source>Confirm user logout</source>
-        <translation></translation>
+        <translation>Potrdi odjavo uporabnika</translation>
     </message>
     <message>
         <source>Do you really want to logout the selected users?</source>
-        <translation></translation>
+        <translation>Ali res želite odjaviti izbrane uporabnike?</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation></translation>
+        <translation>Odjava</translation>
     </message>
 </context>
 <context>
     <name>VeyonCore</name>
     <message>
         <source>[OK]</source>
-        <translation></translation>
+        <translation>[V REDU]</translation>
     </message>
     <message>
         <source>[FAIL]</source>
-        <translation></translation>
+        <translation>[SPODLETELO]</translation>
     </message>
     <message>
         <source>Invalid command!</source>
-        <translation></translation>
+        <translation>Neveljaven ukaz!</translation>
     </message>
     <message>
         <source>Available commands:</source>
-        <translation></translation>
+        <translation>Razpoložljivi ukazi:</translation>
     </message>
     <message>
         <source>Invalid arguments given</source>
-        <translation></translation>
+        <translation>Neveljavni argumenti so podani</translation>
     </message>
     <message>
         <source>Not enough arguments given - use &quot;%1 help&quot; for more information</source>
-        <translation></translation>
+        <translation>Ni dovolj argumentov - uporabite &quot;%1 pomoč&quot; za več informacij</translation>
     </message>
     <message>
         <source>Unknown result!</source>
-        <translation></translation>
+        <translation>Neznan rezultat!</translation>
     </message>
     <message>
         <source>Available modules:</source>
-        <translation></translation>
+        <translation>Razpoložljivi moduli:</translation>
     </message>
     <message>
         <source>No module specified or module not found - available modules are:</source>
-        <translation></translation>
+        <translation>Ni določenega modula ali modula ni mogoče najti - razpoložljivi moduli so:</translation>
     </message>
 </context>
 <context>
     <name>VeyonServiceControl</name>
     <message>
         <source>Veyon Service</source>
-        <translation></translation>
+        <translation>Veyon storitev</translation>
     </message>
 </context>
 <context>
@@ -3338,53 +3432,53 @@ Typically this is required to support terminal servers.</source>
     <name>WindowsPlatformPlugin</name>
     <message>
         <source>Plugin implementing abstract functions for the Windows platform</source>
-        <translation></translation>
+        <translation>Vtičnik izvajanja abstraktnih funkcij za platformo Windows</translation>
     </message>
 </context>
 <context>
     <name>WindowsServiceControl</name>
     <message>
         <source>WindowsServiceControl: the service &quot;%1&quot; is already installed.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitev &quot;%1&quot; je že nameščena.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: the service &quot;%1&quot; could not be installed.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitev &quot;%1&quot; še ni nameščena.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: the service &quot;%1&quot; has been installed successfully.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitev &quot;%1&quot; je bila uspešno nameščena.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: the service &quot;%1&quot; could not be uninstalled.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitve &quot;%1&quot; ni bilo mogoče odstraniti.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: the service &quot;%1&quot; has been uninstalled successfully.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitev &quot;%1&quot; je bila uspešno odstranjena.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: the start type of service &quot;%1&quot; could not be changed.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: vrste začetka storitve &quot;%1&quot; ni bilo mogoče spremeniti.</translation>
     </message>
     <message>
         <source>WindowsServiceControl: service &quot;%1&quot; could not be found.</source>
-        <translation></translation>
+        <translation>Nadzor storitve Windows: storitve &quot;%1&quot; ni bilo mogoče najti.</translation>
     </message>
 </context>
 <context>
     <name>X11VncConfigurationWidget</name>
     <message>
         <source>Builtin x11vnc server configuration</source>
-        <translation></translation>
+        <translation>Vgrajena konfiguracija strežnika x11vnc</translation>
     </message>
     <message>
         <source>Custom x11vnc parameters:</source>
-        <translation></translation>
+        <translation>Parametri x11vnc po meri:</translation>
     </message>
     <message>
         <source>Do not use X Damage extension</source>
-        <translation></translation>
+        <translation>Ne uporabljajte X škodljive razširitve</translation>
     </message>
 </context>
-</TS>    
+</TS>
